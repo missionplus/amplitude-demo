@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Journey with Amplitude</title>
+
+    <script src="https://cdn.amplitude.com/libs/analytics-browser-2.7.4-min.js.gz"></script><script src="https://cdn.amplitude.com/libs/plugin-session-replay-browser-1.4.1-min.js.gz"></script><script src="https://cdn.amplitude.com/libs/plugin-autocapture-browser-0.9.0-min.js.gz"></script><script>window.amplitude.add(window.sessionReplay.plugin({sampleRate: 1})).promise.then(function() {window.amplitude.add(window.amplitudeAutocapturePlugin.plugin());
+        window.amplitude.init('YOUR_AMPLITUDE_API_KEY');});</script>
+
+</head>
+<body>
+    <div id="screen1" class="screen">
+        <h2>Screen 1</h2>
+        <input type="text" id="userId" placeholder="User ID">
+        <button id="generateUUID">Generate UUID</button>
+        <button id="nextScreen1">Next</button>
+    </div>
+
+    <div id="screen2" class="screen" style="display: none;">
+        <h2>Screen 2</h2>
+        <input type="number" id="age" placeholder="Age">
+        <button id="nextScreen2">Next</button>
+    </div>
+
+    <div id="screen3" class="screen" style="display: none;">
+        <h2>Screen 3</h2>
+        <p>Congratulations! You've completed the journey.</p>
+    </div>
+
+    <div id="failScreen" class="screen" style="display: none;">
+        <h2>Application Failed</h2>
+        <p>We're sorry, but your application has been declined.</p>
+    </div>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>
